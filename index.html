@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		
+	</head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<body>
+		<nav class="navbar navbar-default">
+			<div ng-controller="myController">
+				<h1>{{message}}</h1>
+				
+				<ol class="nav nav-navbar">
+					<li><a href="#/">Features</a></li>
+					<li><a href="#/Filters">Filters</a></li>
+					<li><a href="#/Employee">Employee</a></li>
+				</ol>
+			</nav>
+			<ng-view></ng-view>
+			
+			<div ng-controller="filterController">
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Gender</th>
+						<th>City</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="names in filters|orderBy:'name'">
+						<td>{{names.name}}</td>
+						<td>{{names.age}}</td>
+						<td>{{names.Gender}}</td>
+						<td>{{names.City}}</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			<script type="text/javascript" src="https://code.angularjs.org/1.6.4/angular.js"></script>
+			<script type="text/javascript" src="https://code.angularjs.org/1.6.4/angular-route.js"></script>
+			<script type="text/javascript" src="controller.js"></script>
+		</div>
+	</body>
+</html>
