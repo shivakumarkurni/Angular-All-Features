@@ -18,6 +18,7 @@
 				</ol>
 			</nav>
 			<ng-view></ng-view>
+			<input type="textbox" name="text" placeholder="search" ng-model="searchText"> <br><br>
 			
 			<div ng-controller="filterController">
 			<table>
@@ -30,7 +31,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="names in filters|orderBy:'name'">
+					<tr ng-repeat="names in filters|filter:searchText">
 						<td>{{names.name}}</td>
 						<td>{{names.age}}</td>
 						<td>{{names.Gender}}</td>
@@ -38,10 +39,33 @@
 					</tr>
 				</tbody>
 			</table>
+			</div><br><br>
+
+		<input type="textbox" name="text" placeholder="search" ng-model="searchText">	<br><br>
+<div ng-controller="filterController">
+             <table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Price</th>
+						<th>Color</th>
+						<th>size</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="list in products|filter:searchText">
+						<td>{{list.name}}</td>
+						<td>{{list.price}}</td>
+						<td>{{list.color}}</td>
+						<td>{{list.size}}</td>
+					</tr>
+				</tbody>
+			</table>
 			</div>
 			<script type="text/javascript" src="https://code.angularjs.org/1.6.4/angular.js"></script>
 			<script type="text/javascript" src="https://code.angularjs.org/1.6.4/angular-route.js"></script>
 			<script type="text/javascript" src="controller.js"></script>
+			<script type="text/javascript" src="pages/service.js"></script>
 		</div>
 	</body>
 </html>

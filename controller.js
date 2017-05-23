@@ -17,7 +17,7 @@ app.controller("myController",["$scope",function($scope){
       $scope.message="Angular JS All Features"
 }])
 
-app.controller("filterController",["$scope",function($scope){
+app.controller("filterController",["$scope","providerService",function($scope,providerService){
 	var filter=[
 	            {name:"shiva",age:23,Gender:"Male",City:"Hyderabad"},
 	            {name:"Kumar",age:23,Gender:"Male",City:"Bangalore"},
@@ -26,4 +26,5 @@ app.controller("filterController",["$scope",function($scope){
                 {name:"Rani",age:25,Gender:"Female",City:"Rajasthan"}
 	];
 	$scope.filters=filter
+	$scope.products=providerService.getServiceDetails();
 }])
